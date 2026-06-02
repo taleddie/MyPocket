@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Document</title>
+
+    <style>
+
+    .activeGreen {
+        box-shadow: 0 0 0 3px #146c43 !important;
+    }
+
+    .activeRed {
+        box-shadow: 0 0 0 3px #b02a37 !important;
+    }
+
+    </style>
+
 </head>
 <body>
 
@@ -16,8 +29,9 @@
                     <h1>Bem Vindo ao My Pocket!</h1>
                     <p>Por favor, selecione o tipo de transação.</p>
 
-                    <button type="button" style="border-radius: 10px;" class="btn btn-success">Receita</button>
-                    <button type="button" style="border-radius: 10px;" class="btn btn-danger">Despesa</button>
+                    <input type="hidden" id="tipo" name="tipo">
+                    <button type="button" id="btnReceita" style="border-radius: 10px;" class="btn btn-success">Receita</button>
+                    <button type="button" id="btnDespesa" style="border-radius: 10px;" class="btn btn-danger">Despesa</button>
 
                     <div class="mb-3 mt-3">
                         <label for="formGroupExampleInput">Valor</label>
@@ -45,4 +59,25 @@
     </div>
 
 </body>
+
+<script>
+    const btnReceita = document.getElementById("btnReceita");
+    const btnDespesa = document.getElementById("btnDespesa");
+    const tipo = document.getElementById("tipo");
+
+    btnReceita.addEventListener("click", () => {
+        tipo.value = "receita";
+
+        btnReceita.classList.add("activeGreen");
+        btnDespesa.classList.remove("activeRed");
+    });
+
+    btnDespesa.addEventListener("click", () => {
+        tipo.value = "despesa";
+
+        btnDespesa.classList.add("activeRed");
+        btnReceita.classList.remove("activeGreen");
+    });
+</script>
+
 </html>
