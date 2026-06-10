@@ -63,7 +63,7 @@ $hoje = date('Y-m-d');
         }
 
         #header {
-            width: 100vw;
+            width: 100%;
             height: 100px;
             background: rgba(255, 255, 255, 0.2);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
