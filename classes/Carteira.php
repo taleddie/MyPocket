@@ -1,5 +1,8 @@
 <?php
 
+require_once 'Receita.php';
+require_once 'Despesa.php';
+
 class Carteira {
     private $saldo;
     private $transacoes;
