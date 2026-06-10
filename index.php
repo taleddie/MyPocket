@@ -43,6 +43,36 @@ $hoje = date('Y-m-d');
             box-shadow: 0 0 0 3px #b02a37 !important;
         }
 
+        .bg {
+            background-image: url(../img/bank.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+        }
+
+        #card-saldo,
+        #card-form,
+        #card-extrato {
+            background: #ffffff9a;
+            border-radius: 25px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.71);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.84);
+        }
+
+        #header {
+            width: 100vw;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
         @media (min-width: 768px) {
             #card-extrato { 
                 max-height: 630px;
@@ -56,15 +86,19 @@ $hoje = date('Y-m-d');
 
 <body>
 
+    <!-- background div -->
+    <div class="bg">
 
+    <header class="d-flex justify-content-center align-items-center" id="header">
+        <h1 class="">MyPocket</h1>
+    </header>
 
     <div class="container py-5">
         <div class="gx-5 row justify-content-center">
             <div class="col justify-content-center">
 
                 <!-- saldo -->
-                <div style="background-color: #ffffff; border-radius: 25px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);"
-                    class="p-3 mb-2 text-dark">
+                <div class="p-3 mb-2 text-dark" id="card-saldo">
                     <h2 class="m-3 text-center fw-bold">Saldo</h2>
                     <div class="saldo-valor">
                         <p class="text-center fs-4">R$ <?= number_format($saldo, 2, ',', '.') ?></p>
@@ -85,8 +119,7 @@ $hoje = date('Y-m-d');
                 <?php endif; ?>
 
                 <!--form-->
-                <div style="background-color: #ffffff; border-radius: 25px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);"
-                    class="p-3 mb-2 text-dark">
+                <div class="p-3 mb-2 text-dark" id="card-form">
                     <form action="processa.php" method="POST">
                         <h2 class="m-3 text-center fw-bold">Nova transação</h2>
 
@@ -128,8 +161,8 @@ $hoje = date('Y-m-d');
             </div>
 
             <!-- extrato --->
-            <div style="background-color: #ffffff; border-radius: 25px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);"
-                class="col-md-5 p-3 mb-2 text-dark" id="card-extrato">
+            <div class="col-md-5 mb-2">
+                <div class="p-4" id="card-extrato">
                 <?php if (empty($transacoes)): ?>
                 <p class="text-muted text-center mt-5">Nenhuma transação cadastrada ainda.</p>
                 <?php else: ?>
@@ -168,7 +201,13 @@ $hoje = date('Y-m-d');
                     <?php endif ?>
                 </div>
             </div>
+            
+            </div>
         </div>
+
+    </div>
+    
+    
 
         <script>
             const btnReceita = document.getElementById("btnReceita");
