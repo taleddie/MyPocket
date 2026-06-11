@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once 'Receita.php';
 require_once 'Despesa.php';
 

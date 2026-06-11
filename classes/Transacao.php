@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 abstract class Transacao {
     protected $id;
     protected $data;
