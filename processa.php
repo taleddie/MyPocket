@@ -1,11 +1,8 @@
 <?php
 
-
 require_once 'classes/Carteira.php';
 
 session_start();
-
-
 
 if (!isset($_SESSION['carteira'])) {
     $_SESSION['carteira'] = new Carteira();
