@@ -14,9 +14,8 @@ $transacoes = $carteira->getTransacoes();
 
 // Captura e limpa mensagens de feedback
 $erro = $_SESSION['erro'] ?? null;
-unset($_SESSION['erro']);
 $sucesso = $_SESSION['sucesso'] ?? null;
-unset($_SESSION['sucesso']);
+unset($_SESSION['erro'], $_SESSION['sucesso']);
 
 $hoje = date('Y-m-d');
 ?>
