@@ -14,7 +14,6 @@ $tipo = $_POST['tipo'];
 $valor = (float) $_POST['valor'];
 $data = $_POST['data'];
 $descricao = $_POST['descricao'];
-$id = (int) count($carteira->getTransacoes()) + 1;
 
 try {
     if ($tipo === 'receita') {
