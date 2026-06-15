@@ -8,18 +8,13 @@ if (!isset($_SESSION['carteira'])) {
     $_SESSION['carteira'] = new Carteira();
 }
 
-/** @var Carteira $carteira */
 $carteira = $_SESSION['carteira'];
 $saldo = $carteira->getSaldo();
 $transacoes = $carteira->getTransacoes();
 
 // Captura e limpa mensagens de feedback
 $erro = $_SESSION['erro'] ?? null;
-$sucesso = $_SESSION['sucesso'] ?? null;
-unset($_SESSION['erro'], $_SESSION['sucesso']);
-
-// Cor do saldo
-$corSaldo = $saldo >= 0 ? '#146c43' : '#b02a37';
+unset($_SESSION['erro']);
 
 $hoje = date('Y-m-d');
 ?>
