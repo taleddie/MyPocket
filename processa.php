@@ -17,10 +17,10 @@ $descricao = $_POST['descricao'];
 
 try {
     if ($tipo === 'receita') {
-        $transacao = new Receita($id, $data, $valor, $descricao);
+        $transacao = new Receita($data, $valor, $descricao);
         $carteira->adicionarReceita($transacao);
     } else {
-        $transacao = new Despesa($id, $data, $valor, $descricao);
+        $transacao = new Despesa($data, $valor, $descricao);
         $carteira->adicionarDespesa($transacao);
     }
 } catch (Exception $e) {
