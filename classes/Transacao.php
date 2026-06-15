@@ -3,20 +3,14 @@
 declare(strict_types=1);
 
 abstract class Transacao {
-    protected $id;
     protected $data;
     protected $valor;
     protected $descricao;
 
-    public function __construct($id, $data, $valor, $descricao) {
-        $this->id = $id;
+    public function __construct($data, $valor, $descricao) {
         $this->data = $data;
         $this->valor = $valor;
         $this->descricao = $descricao;
-    }
-
-    public function getId () {
-        return $this->id;
     }
 
     public function getData () {
