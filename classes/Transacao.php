@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 abstract class Transacao {
+    protected $id;
     protected $data;
     protected $valor;
     protected $descricao;
@@ -11,6 +12,10 @@ abstract class Transacao {
         $this->data = $data;
         $this->valor = $valor;
         $this->descricao = $descricao;
+    }
+
+    public function getId () {
+        return $this->id;
     }
 
     public function getData () {
