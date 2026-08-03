@@ -1,30 +1,30 @@
 # MyPocket 💰
 
-O **MyPocket** é um sistema financeiro desenvolvido em **PHP** utilizando os princípios da **Programação Orientada a Objetos (POO)**. O projeto simula o back-end de uma fintech de organização financeira pessoal, permitindo o gerenciamento de receitas, despesas, saldo e histórico de transações.
+**MyPocket** is a personal finance management system developed in **PHP** using **Object-Oriented Programming (OOP)** principles. The project simulates the back-end of a personal finance application, allowing users to manage income, expenses, account balance, and transaction history.
 
-O sistema foi desenvolvido com foco na aplicação de conceitos fundamentais de orientação a objetos, como **encapsulamento, herança, abstração, polimorfismo e tratamento de exceções**, garantindo maior segurança e organização dos dados financeiros.
+The application was designed to reinforce core OOP concepts such as **encapsulation, inheritance, abstraction, polymorphism, and exception handling**, ensuring data integrity and a well-structured architecture.
 
-## Funcionalidades
+## Features
 
-- Cadastro de receitas e despesas;
-- Atualização automática do saldo da carteira;
-- Impedimento de saldo negativo através de exceções;
-- Histórico completo de transações (extrato);
-- Identificação de entradas e saídas;
-- Interface responsiva desenvolvida com Bootstrap.
+- Register income and expenses;
+- Automatically update the wallet balance;
+- Prevent negative balances through exception handling;
+- Display a complete transaction history;
+- Identify transactions as income or expense;
+- Responsive interface built with Bootstrap.
 
-## Conceitos aplicados
+## Concepts Applied
 
-- Programação Orientada a Objetos (POO);
-- Classes abstratas;
-- Herança;
-- Encapsulamento;
-- Polimorfismo;
-- Métodos mágicos (`__construct`);
-- Tratamento de exceções (`try/catch`);
-- Tipagem estrita (`declare(strict_types=1)`).
+- Object-Oriented Programming (OOP);
+- Abstract classes;
+- Inheritance;
+- Encapsulation;
+- Polymorphism;
+- Magic methods (`__construct`);
+- Exception handling (`try/catch`);
+- Strict typing (`declare(strict_types=1)`).
 
-## Estrutura do projeto
+## Project Structure
 
 ```text
 mypocket/
@@ -37,13 +37,13 @@ mypocket/
 └── index.php
 ```
 
-## Tecnologias utilizadas
+## Technologies Used
 
 - PHP 8.1+
 - HTML5
 - Bootstrap 5
-- Git e GitHub
+- Git & GitHub
 
 ---
 
-Projeto desenvolvido para a disciplina de **Programação Web II**, com o objetivo de aplicar boas práticas de desenvolvimento e modelagem de sistemas utilizando PHP.
+Project developed for the **Web Programming II** course, focusing on software design, code organization, and the practical application of OOP principles in PHP.
