@@ -46,4 +46,4 @@ mypocket/
 
 ---
 
-Projeto desenvolvido para a disciplina de **Programação Orientada a Objetos**, com o objetivo de aplicar boas práticas de desenvolvimento e modelagem de sistemas utilizando PHP.
+Projeto desenvolvido para a disciplina de **Programação Web II**, com o objetivo de aplicar boas práticas de desenvolvimento e modelagem de sistemas utilizando PHP.
