@@ -1,34 +1,29 @@
 <?php
 
-require_once 'classes/Carteira.php';
+require_once __DIR__ . '/database/conexao.php';
 
 session_start();
 
-if (!isset($_SESSION['carteira'])) {
-    $_SESSION['carteira'] = new Carteira();
+$tipo = $_POST['tipo'] ?? '';
+$valor = (float) ($_POST['valor'] ?? 0);
+$data = $_POST['data'] ?? '';
+$descricao = $_POST['descricao'] ?? '';
+
+if (!in_array($tipo, ['receita', 'despesa'])) {
+    $_SESSION['erro'] = 'Tipo inválido.';
+    header('Location: index.php');
+    exit;
 }
-
-$carteira = $_SESSION['carteira'];
-
-$tipo = $_POST['tipo'];
-$valor = (float) $_POST['valor'];
-$data = $_POST['data'];
-$descricao = $_POST['descricao'];
 
 try {
-    if ($tipo === 'receita') {
-        $transacao = new Receita($data, $valor, $descricao);
-        $carteira->adicionarReceita($transacao);
-    } else {
-        $transacao = new Despesa($data, $valor, $descricao);
-        $carteira->adicionarDespesa($transacao);
-    }
+    $stmt = $pdo->prepare("INSERT INTO transacoes (tipo, data, valor, descricao, criado_em) VALUES (:tipo, :data, :valor, :descricao, NOW())");
+    $stmt->execute(['tipo' => $tipo, 'data' => $data, 'valor' => $valor, 'descricao' => $descricao]);
+    $_SESSION['sucesso'] = 'Transação cadastrada com sucesso.';
 } catch (Exception $e) {
-    $_SESSION['erro'] = $e->getMessage();
+    $_SESSION['erro'] = 'Erro ao salvar transação: ' . $e->getMessage();
 }
 
-$_SESSION['carteira'] = $carteira;
-header("Location: index.php");
+header('Location: index.php');
 exit;
 
 ?>
