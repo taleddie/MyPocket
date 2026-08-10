@@ -1,28 +1,14 @@
 <?php
 
 require_once __DIR__ . '/classes/Carteira.php';
-require_once __DIR__ . '/database/conexao.php';
 
 session_start();
 
-$carteira = new Carteira();
-
-try {
-    $stmt = $pdo->query("SELECT * FROM transacoes ORDER BY data ASC, id ASC");
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($rows as $r) {
-        if ($r['tipo'] === 'receita') {
-            $t = new Receita($r['data'], (float)$r['valor'], $r['descricao']);
-            $carteira->adicionarReceita($t);
-        } else {
-            $t = new Despesa($r['data'], (float)$r['valor'], $r['descricao']);
-            $carteira->adicionarDespesa($t);
-        }
-    }
-} catch (Exception $e) {
-    $_SESSION['erro'] = 'Erro ao carregar transações: ' . $e->getMessage();
+if (!isset($_SESSION['carteira'])) {
+    $_SESSION['carteira'] = new Carteira();
 }
 
+$carteira = $_SESSION['carteira'];
 $saldo = $carteira->getSaldo();
 $transacoes = $carteira->getTransacoes();
 
